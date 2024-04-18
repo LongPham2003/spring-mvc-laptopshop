@@ -1,7 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
             <!DOCTYPE html>
             <html lang="en">
 
@@ -45,7 +44,7 @@
                                         <h3>Create a User</h3>
                                         <hr>
                                         <form:form method="post" action="/admin/user/create" modelAttribute="newUser"
-                                            class="row">
+                                            class="row" enctype="multipart/form-data">
                                             <div class="mb-3 col-12 col-md-6">
                                                 <label for="exampleInputPassword1" class="form-label">Email</label>
                                                 <form:input type="" class="form-control" id="exampleInputPassword1"
@@ -73,16 +72,17 @@
                                             </div>
                                             <div class=" mb-3 col-12 col-md-6 ">
                                                 <label for="exampleInputPassword1" class="form-label">Role</label>
-                                                <select class="form-select" id="inputGroupSelect01">
-                                                    <option value="1">Admin</option>
-                                                    <option value="2">User</option>
-                                                </select>
+                                                <form:select class="form-select" id="inputGroupSelect01"
+                                                    path="role.name">
+                                                    <form:option value="Admin">Admin</form:option>
+                                                    <form:option value="User">User</form:option>
+                                                </form:select>
                                             </div>
                                             <div class="mb-3 col-12 col-md-6 ">
                                                 <label for="exampleInputPassword1" class="form-label">Avatar</label>
                                                 <input type="file" class="form-control" id="avatarfile"
                                                     aria-describedby="inputGroupFileAddon04" aria-label="Upload"
-                                                    accept=".png, .jpg, .jpeg">
+                                                    accept=".png, .jpg, .jpeg" name="hoidanitFile" />
                                             </div>
                                             <div class="col-12 col-md-3">
                                                 <img style="max-height: 250px; display: none;" src="" alt="avatar"
