@@ -41,6 +41,7 @@
                                                 <td>Email</td>
                                                 <td>Full name</td>
                                                 <td>Địa chỉ</td>
+                                                <td>Role</td>
                                                 <td>Action</td>
                                             </tr>
                                         </thead>
@@ -51,6 +52,7 @@
                                                     <td>${user.email}</td>
                                                     <td>${user.fullname}</td>
                                                     <td>${user.address}</td>
+                                                    <td>${user.role.name}</td>
                                                     <td>
                                                         <a href="/admin/user/${user.id}"><button
                                                                 class="btn - btn-danger ">View</button></a>
