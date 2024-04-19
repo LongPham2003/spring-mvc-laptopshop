@@ -41,69 +41,59 @@
                                 </ol>
                                 <div class="row">
                                     <div class="col-md-6 col-12 mx-auto ">
-                                        <h3>Create a User</h3>
+                                        <h3>Create a Product</h3>
                                         <hr>
-                                        <form:form method="post" action="/admin/user/create" modelAttribute="newUser"
-                                            class="row" enctype="multipart/form-data">
+                                        <form:form method="post" action="/admin/product/create"
+                                            modelAttribute="newProduct" class="row" enctype="multipart/form-data">
                                             <div class="mb-3 col-12 col-md-6">
-                                                <c:set var="erroremail">
-                                                    <form:errors path="email" cssClass="invalid-feedback" />
-                                                </c:set>
-                                                <label for="exampleInputPassword1" class="form-label">Email</label>
-                                                <form:input type=""
-                                                    class="  form-control ${not empty erroremail ? 'is-invalid ' :''}"
-                                                    id="exampleInputPassword1" path="email" />
-                                                ${erroremail}
-                                            </div>
-
-                                            <div class="mb-3 col-12 col-md-6">
-                                                <c:set var="errorpassword">
-                                                    <form:errors path="password" cssClass="invalid-feedback" />
-                                                </c:set>
-                                                <label for="exampleInputEmail1" class="form-label">Password</label>
-                                                <form:input type=""
-                                                    class="form-control ${not empty errorpassword ? 'is-invalid ' :''}"
-                                                    id="exampleInputEmail1" aria-describedby="emailHelp"
-                                                    path="password" />
-                                                ${errorpassword}
-
-                                            </div>
-                                            <div class="mb-3 col-12 col-md-6">
-                                                <c:set var="errorfullname">
-                                                    <form:errors path="fullname" cssClass="invalid-feedback" />
-                                                </c:set>
-                                                <label for="exampleInputPassword1"
-                                                    class="form-label  ${not empty errorpassword ? 'is-invalid ' :''}">Fullname</label>
+                                                <label for="exampleInputPassword1" class="form-label">Name</label>
                                                 <form:input type="" class="form-control" id="exampleInputPassword1"
-                                                    path="fullname" />
-                                                ${errorfullname}
+                                                    path="name" />
                                             </div>
                                             <div class="mb-3 col-12 col-md-6">
-                                                <label for="exampleInputEmail1" class="form-label">Address</label>
-                                                <form:input type="" class="form-control " id="exampleInputEmail1"
-                                                    aria-describedby="emailHelp" path="address" />
+                                                <label for="exampleInputEmail1" class="form-label">Price</label>
+                                                <form:input type="" class="form-control" id="exampleInputEmail1"
+                                                    aria-describedby="emailHelp" path="price" />
                                             </div>
                                             <div class="mb-3 ">
-                                                <label for="exampleInputPassword1" class="form-label">Phone</label>
-                                                <form:input type="" class="form-control" id="exampleInputPassword1"
-                                                    path="phone" />
+                                                <label for="exampleInputPassword1" class="form-label">Detail
+                                                    description</label>
+                                                <form:input type="text" rows="5" class="form-control"
+                                                    id="exampleInputPassword1" path="detailDesc" />
                                             </div>
-                                            <div class=" mb-3 col-12 col-md-6 ">
-                                                <label for="exampleInputPassword1" class="form-label">Role</label>
-                                                <form:select class="form-select" id="inputGroupSelect01"
-                                                    path="role.name">
-                                                    <form:option value="Admin">Admin</form:option>
-                                                    <form:option value="User">User</form:option>
-                                                </form:select>
+                                            <div class="mb-3 col-12 col-md-6">
+                                                <label for="exampleInputEmail1" class="form-label">Short
+                                                    description</label>
+                                                <form:input type="" class="form-control" id="exampleInputEmail1"
+                                                    aria-describedby="emailHelp" path="shortDesc" />
                                             </div>
                                             <div class="mb-3 col-12 col-md-6 ">
+                                                <label for="exampleInputPassword1" class="form-label">Quantity</label>
+                                                <form:input type="" class="form-control" id="exampleInputPassword1"
+                                                    path="quantity" />
+                                            </div>
+                                            <div class=" mb-3 col-12 col-md-6 ">
+                                                <label for="exampleInputPassword1" class="form-label">Factory</label>
+                                                <form:select class="form-select" id="inputGroupSelect01" path="factory">
+                                                    <form:option value="Apple">Apple</form:option>
+                                                    <form:option value="Asus">Asus</form:option>
+                                                </form:select>
+                                            </div>
+                                            <div class=" mb-3 col-12 col-md-6 ">
+                                                <label for="exampleInputPassword1" class="form-label">Target</label>
+                                                <form:select class="form-select" id="inputGroupSelect01" path="target">
+                                                    <form:option value="gamming">Gaming</form:option>
+                                                    <form:option value="office">Văn Phòng</form:option>
+                                                </form:select>
+                                            </div>
+                                            <div class="mb-3  ">
                                                 <label for="exampleInputPassword1" class="form-label">Avatar</label>
                                                 <input type="file" class="form-control" id="avatarfile"
                                                     aria-describedby="inputGroupFileAddon04" aria-label="Upload"
-                                                    accept=".png, .jpg, .jpeg" name="hoidanitFile" />
+                                                    accept=".png, .jpg, .jpeg" name="productImgFile" />
                                             </div>
-                                            <div class="col-12 col-md-3">
-                                                <img style="max-height: 250px; display: none;" src="" alt="avatar"
+                                            <div class="mb-3 col-12 col-md-3">
+                                                <img style="max-height: 350px; display: none;" src="" alt="avatar"
                                                     id="avatarPreview">
                                             </div>
                                             <button type="submit" class="btn btn-primary">Submit</button>
