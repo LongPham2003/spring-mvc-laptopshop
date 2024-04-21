@@ -44,25 +44,24 @@
                                                 <td>Action</td>
                                             </tr>
                                         </thead>
-                                        <!-- <tbody>
-                                            <c:forEach var="user" items="${users1}">
+                                        <tbody>
+                                            <c:forEach var="pr" items="${pr}">
                                                 <tr>
-                                                    <td>${user.id}</td>
-                                                    <td>${user.email}</td>
-                                                    <td>${user.fullname}</td>
-                                                    <td>${user.address}</td>
-                                                    <td>${user.role.name}</td>
+                                                    <td>${pr.id}</td>
+                                                    <td>${pr.name}</td>
+                                                    <td>${pr.price}</td>
+                                                    <td>${pr.factory}</td>
                                                     <td>
-                                                        <a href="/admin/user/${user.id}"><button
+                                                        <a href="/admin/product/${pr.id}"><button
                                                                 class="btn - btn-danger ">View</button></a>
-                                                        <a href="/admin/user/update/${user.id}"><button
+                                                        <a href="/admin/product/update/${pr.id}"><button
                                                                 class="btn - btn-success  ">Update</button></a>
-                                                        <a href="/admin/user/delete/${user.id}"><button
+                                                        <a href="/admin/product/delete/${pr.id}"><button
                                                                 class="btn - btn-danger  ">Delete</button></a>
                                                     </td>
                                                 </tr>
                                             </c:forEach>
-                                        </tbody> -->
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>

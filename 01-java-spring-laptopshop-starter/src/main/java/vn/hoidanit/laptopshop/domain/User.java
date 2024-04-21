@@ -14,6 +14,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+//regexp="^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[azA-Z0-9.-]+$")
 
 @Entity
 @Table(name = "users")
@@ -23,9 +24,9 @@ public class User {
     private long id;
     @NotNull
     @Email
-    @Email(message = "Email is not valid", regexp = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[azA-Z0-9.-]+$")
-    private String email;
+    @Email(message = "Email is not valid")
     @NotNull
+    private String email;
     @Size(min = 2, message = "Password tối thiểu 2 kí tự")
     private String password;
     @NotNull

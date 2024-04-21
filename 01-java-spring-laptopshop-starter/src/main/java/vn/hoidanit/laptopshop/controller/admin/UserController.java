@@ -104,7 +104,6 @@ public class UserController {
             @RequestParam("hoidanitFile") MultipartFile file) {
 
         // validate
-
         List<FieldError> errors = newUserbindingResult.getFieldErrors();
         for (FieldError error : errors) {
             System.out.println(error.getField() + " - " + error.getDefaultMessage());
@@ -115,9 +114,7 @@ public class UserController {
         }
 
         String avatar = this.uploadService.handleSaveUploadFile(file, "avatar");
-
         String hashPassword = this.passwordEncoder.encode(hoidanit.getPassword());
-
         hoidanit.setAvatar(avatar);
         hoidanit.setPassword(hashPassword);
         hoidanit.setRole(this.userService.getRoleByName(hoidanit.getRole().getName()));

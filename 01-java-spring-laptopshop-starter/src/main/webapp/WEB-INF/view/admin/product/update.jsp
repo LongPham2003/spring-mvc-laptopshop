@@ -17,6 +17,13 @@
                 <script>
                     $(document).ready(() => {
                         const avatarFile = $("#avatarfile");
+                        const orgImage = "${newProduct.image}"
+                        if (orgImage) {
+                            const urlImage = "/images/product/" + orgImage;
+                            $("#avatarPreview").attr("src", urlImage);
+                            $("#avatarPreview").css({ "display": "block" });
+                        }
+
                         avatarFile.change(function (e) {
                             const imgURL = URL.createObjectURL(e.target.files[0]);
                             $("#avatarPreview").attr("src", imgURL);
@@ -34,17 +41,22 @@
                     <div id="layoutSidenav_content">
                         <main>
                             <div class="container-fluid px-4">
-                                <h1 class="mt-4">Manager User</h1>
+                                <h1 class="mt-4">Manager product</h1>
                                 <ol class="breadcrumb mb-4">
                                     <li class="breadcrumb-item active"><a href="/admin">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">User</li>
+                                    <li class="breadcrumb-item active">product</li>
                                 </ol>
                                 <div class="row">
                                     <div class="col-md-6 col-12 mx-auto ">
                                         <h3>Create a Product</h3>
                                         <hr>
-                                        <form:form method="post" action="/admin/product/create"
+                                        <form:form method="post" action="/admin/product/update"
                                             modelAttribute="newProduct" class="row" enctype="multipart/form-data">
+                                            <div class="mb-3" style="display: none;">
+                                                <label class="form-label">Id:</label>
+                                                <form:input type="text" class="form-control" path="id" />
+                                            </div>
+
                                             <div class="mb-3 col-12 col-md-6">
                                                 <label for="exampleInputPassword1" class="form-label">Name</label>
                                                 <form:input type="" class="form-control" id="exampleInputPassword1"
