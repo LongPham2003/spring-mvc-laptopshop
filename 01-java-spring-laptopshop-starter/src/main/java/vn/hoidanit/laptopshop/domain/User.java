@@ -14,7 +14,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-//regexp="^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[azA-Z0-9.-]+$")
+import vn.hoidanit.laptopshop.service.validator.StrongPassword;
 
 @Entity
 @Table(name = "users")
@@ -28,6 +28,7 @@ public class User {
     @NotNull
     private String email;
     @Size(min = 2, message = "Password tối thiểu 2 kí tự")
+    @StrongPassword(message = "Password phải có 8 kí tự")
     private String password;
     @NotNull
     @Size(min = 2, message = "Fullanme tối thiểu 2 kí tự")
