@@ -1,13 +1,19 @@
 package vn.hoidanit.laptopshop.domain.dto;
 
+import jakarta.validation.constraints.Size;
 import vn.hoidanit.laptopshop.service.validator.RegisterChecked;
 
 @RegisterChecked
 public class RegisterDTO {
+    @Size(min = 3, message = "Phải có tối thiểu 3 kí tự")
     private String firstName;
+    @Size(min = 3, message = "Phải có tối thiểu 3 kí tự")
     private String lastName;
+    @Size(min = 3, message = "Phải có tối thiểu 3 kí tự")
     private String email;
     private String password;
+    @Size(min = 3, message = "Phải có tối thiểu 3 kí tự")
+
     private String confirmPassword;
 
     public String getFirstName() {
