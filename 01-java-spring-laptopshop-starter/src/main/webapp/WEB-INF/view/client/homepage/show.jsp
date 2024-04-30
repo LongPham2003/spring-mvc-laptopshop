@@ -100,7 +100,7 @@
                                         <div class="col-lg-12">
                                             <div class="row g-4">
                                                 <c:forEach var="pr" items="${products}">
-                                                    <div class="col-md-6 col-lg-4 col-xl-3">
+                                                    <div class="col-md-6 col-lg-4 col-xl-3 ">
                                                         <div class="rounded position-relative fruite-item">
                                                             <div class="fruite-img">
                                                                 <img src="/images/product/${pr.image}"
@@ -110,20 +110,28 @@
                                                                 style="top: 10px; left: 10px;">Laptop</div>
                                                             <div
                                                                 class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                                <h4><a href="/product/${pr.id}">
+                                                                <h4><a style="font-size: 15px;"
+                                                                        href="/product/${pr.id}">
                                                                         ${pr.name}
                                                                     </a></h4>
-                                                                <p>${pr.shortDesc}</p>
+                                                                <p style="font-size: 13px;">${pr.shortDesc}</p>
                                                                 <div class="text-align flex-lg-wrap">
                                                                     <p class="text-dark fs-5 fw-bold mb-0">
                                                                         <fmt:formatNumber type="number"
                                                                             value="${pr.price}" />
                                                                         đ
                                                                     </p>
-                                                                    <a href="#"
-                                                                        class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                            class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                        Add to cart</a>
+                                                                    <form action="/add-product-to-cart/${pr.id}"
+                                                                        method="post">
+                                                                        <input type="hidden"
+                                                                            name="${_csrf.parameterName}"
+                                                                            value="${_csrf.token}" />
+                                                                        <button
+                                                                            class="btn border border-secondary rounded-pill px-3 mt-3 text-primary"><i
+                                                                                class="fa fa-shopping-bag me-2 text-primary"></i>
+                                                                            Add to cart
+                                                                        </button>
+                                                                    </form>
                                                                 </div>
                                                             </div>
                                                         </div>
