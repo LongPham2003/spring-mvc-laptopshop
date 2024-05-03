@@ -1,5 +1,6 @@
 {
     "java.configuration.updateBuildConfiguration": "interactive",
     "java.compile.nullAnalysis.mode": "automatic",
-    "explorer.compactFolders": false
+    "explorer.compactFolders": false,
+    "java.debug.settings.onBuildFailureProceed": true
 }

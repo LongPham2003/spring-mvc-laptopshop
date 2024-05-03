@@ -3,6 +3,8 @@ package vn.hoidanit.laptopshop.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import jakarta.servlet.http.HttpSession;
@@ -39,7 +41,7 @@ public class ProductService {
         this.oderdetailRepository = oderdetailRepository;
     }
 
-    public void handleAddProducttoCart(String email, long productId, HttpSession session) {
+    public void handleAddProducttoCart(String email, long productId, HttpSession session, long quantity) {
         // check xem user đã có cart chưa ? nếu chưa -> tạo mới
 
         User user = this.userService.getUserByEmail(email);
@@ -67,7 +69,7 @@ public class ProductService {
                     cartDetail.setCart(cart);
                     cartDetail.setProduct(realProduct);
                     cartDetail.setPrice(realProduct.getPrice());
-                    cartDetail.setQuantity(1);
+                    cartDetail.setQuantity(quantity);
                     this.cartDetailRepository.save(cartDetail);
                     // update cart (sum)
                     int sum = cart.getSum() + 1;
@@ -75,7 +77,7 @@ public class ProductService {
                     this.cartRepository.save(cart);
                     session.setAttribute("sum", sum);
                 } else {
-                    oldDetail.setQuantity(oldDetail.getQuantity() + 1);
+                    oldDetail.setQuantity(oldDetail.getQuantity() + quantity);
                     this.cartDetailRepository.save(oldDetail);
                 }
             }
@@ -91,8 +93,8 @@ public class ProductService {
         return p;
     }
 
-    public List<Product> feactProducts() {
-        return this.productRepository.findAll();
+    public Page<Product> fetchProducts(Pageable page) {
+        return this.productRepository.findAll(page);
     }
 
     public void deleteById(long id) {

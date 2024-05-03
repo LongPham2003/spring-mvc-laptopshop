@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import vn.hoidanit.laptopshop.domain.Order;
 import vn.hoidanit.laptopshop.domain.OrderDetail;
+import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.repository.OderRepository;
 import vn.hoidanit.laptopshop.repository.OderdetailRepository;
 
@@ -38,6 +39,21 @@ public class OderService {
                 this.oderdetailRepository.deleteById(od.getId());
             }
         }
+        this.oderRepository.deleteById(id);
+    }
+
+    public void updateOrder(Order order) {
+        // tìm oder muốn update
+        Optional<Order> orDerOptional = this.fetchOrderById(order.getId());
+        if (orDerOptional.isPresent()) {
+            Order currentOrder = orDerOptional.get();// lấy ra đối tượng đó
+            currentOrder.setStatus(order.getStatus());
+            this.oderRepository.save(currentOrder);
+        }
+    }
+
+    public List<Order> fetchOrderByUser(User user) {
+        return this.oderRepository.findByUser(user);
     }
 
 }
