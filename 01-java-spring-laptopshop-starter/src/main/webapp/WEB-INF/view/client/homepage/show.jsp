@@ -32,6 +32,13 @@
                 <!-- Template Stylesheet -->
                 <link href="/client/css/style.css" rel="stylesheet">
 
+                <meta name="_csrf" content="${_csrf.token}" />
+                <!-- default header name is X-CSRF-TOKEN -->
+                <meta name="_csrf_header" content="${_csrf.headerName}" />
+
+                <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.css"
+                    rel="stylesheet">
+
             </head>
 
             <body>
@@ -121,7 +128,7 @@
                                                                             value="${pr.price}" />
                                                                         đ
                                                                     </p>
-                                                                    <form action="/add-product-to-cart/${pr.id}"
+                                                                    <!-- <form action="/add-product-to-cart/${pr.id}"
                                                                         method="post">
                                                                         <input type="hidden"
                                                                             name="${_csrf.parameterName}"
@@ -131,7 +138,13 @@
                                                                                 class="fa fa-shopping-bag me-2 text-primary"></i>
                                                                             Add to cart
                                                                         </button>
-                                                                    </form>
+                                                                    </form> -->
+                                                                    <button data-product-id="${pr.id}"
+                                                                        class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                                        <i
+                                                                            class="fa fa-shopping-bag me-2 text-primary"></i>
+                                                                        Add to cart
+                                                                    </button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -167,6 +180,8 @@
 
                 <!-- Template Javascript -->
                 <script src="/client/js/main.js"></script>
+                <script
+                    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js"></script>
             </body>
 
             </html>
